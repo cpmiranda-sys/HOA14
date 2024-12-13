@@ -1,0 +1,17 @@
+---
+keystone_host: "qcpmiranda"
+keystone_admin_password: "changeme"
+
+glance_db_host: "localhost"
+glance_db_name: "glance"
+glance_db_user: "glance"
+glance_db_password: "changeme"
+
+glance_api_bind_host: "0.0.0.0"
+glance_api_bind_port: 9292
+
+glance_registry_bind_host: "0.0.0.0"
+glance_registry_bind_port: 9191
+
+log_dir: "/var/log/glance"
+verbose: "True"

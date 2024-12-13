@@ -1,0 +1,20 @@
+[DEFAULT]
+# Glance API settings
+bind_host = {{ glance_api_bind_host }}
+bind_port = {{ glance_api_bind_port }}
+verbose = {{ verbose }}
+log_dir = {{ log_dir }}
+
+# Database connection settings
+sql_connection = mysql+pymysql://{{ glance_db_user }}:{{ glance_db_password }}@{{ glance_db_host }}/{{ glance_db_name }}
+
+# Keystone settings
+auth_uri = http://{{ keystone_host }}:5000/v3
+auth_url = http://{{ keystone_host }}:35357/v3
+auth_plugin = password
+project_name = service
+user_domain_name = default
+project_domain_name = default
+username = glance
+password = {{ keystone_admin_password }}
+

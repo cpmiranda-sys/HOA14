@@ -1,0 +1,7 @@
+---
+- hosts: server1
+  become: true
+  roles:
+    - keystone
+    - glance
+    - nova

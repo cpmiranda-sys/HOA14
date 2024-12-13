@@ -1,0 +1,11 @@
+---
+- name: Install Nova packages 
+  apt:
+    name:
+      - nova-api
+      - nova-scheduler
+      - nova-conductor
+      - nova-compute
+    state: present
+    update_cache: yes
+

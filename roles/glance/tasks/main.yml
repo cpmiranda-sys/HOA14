@@ -1,0 +1,47 @@
+---
+- name: Install required packages
+  apt:
+    name:
+      - python3-pip
+      - python3-dev
+      - libmysqlclient-dev
+      - libffi-dev
+      - gcc
+      - g++
+      - libssl-dev
+      - libsasl2-dev
+      - libldap2-dev
+      - virtualenv
+    state: present
+
+- name: Install Glance from the Ubuntu repository
+  apt:
+    name: glance
+    state: present
+
+- name: Configure Glance API
+  template:
+    src: glance-api.conf.j2
+    dest: /etc/glance/glance-api.conf
+  notify:
+    - restart glance-api
+
+- name: Configure Glance Registry
+  template:
+    src: glance-registry.conf.j2
+    dest: /etc/glance/glance-registry.conf
+  notify:
+    - restart glance-registry
+
+#- name: Ensure glance-api is running
+ # service:
+  #  name: glance-api
+   # state: started
+    #enabled: yes
+
+#- name: Ensure glance-registry is running
+ # service:
+  #  name: glance-registry
+   # state: started
+    #enabled: yes
+

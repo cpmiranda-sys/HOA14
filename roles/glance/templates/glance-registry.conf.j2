@@ -1,0 +1,14 @@
+[DEFAULT]
+# Glance Registry service settings
+bind_host = {{ glance_registry_bind_host }}
+bind_port = {{ glance_registry_bind_port }}
+verbose = {{ verbose }}
+log_dir = {{ log_dir }}
+
+# Database connection settings
+sql_connection = mysql+pymysql://{{ glance_db_user }}:{{ glance_db_password }}@{{ glance_db_host }}/{{ glance_db_name }}
+
+# Cache settings
+use_syslog = True
+registry_api = sql
+

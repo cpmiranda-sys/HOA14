@@ -1,0 +1,17 @@
+---
+- name: Install Keystone (Ubuntu)
+  apt:
+    name: keystone
+    state: present
+
+- name: Enable and Start Keystone services 
+  systemd:
+    name: apache2
+    state: started
+    enabled: yes
+
+- name: Restart Apache Service
+  systemd:
+    name: apache2
+    enabled: yes
+    state: restarted
